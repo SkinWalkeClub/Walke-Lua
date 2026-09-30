@@ -1,6 +1,6 @@
 # Walke Lua
 
-A Luau parser and code beautifier written in pure Lua. Feed it ugly, minified, or decompiled code — one giant line, no spacing, `L0_1`/`L1_1` variable soup — and it hands back clean, indented, one-statement-per-line source you can actually read.
+A Luau parser and code beautifier written in pure Lua. Feed it ugly, minified, or decompiled code — one giant line, no spacing, `L0_1`/`L1_1` variable soup and it hands back clean, indented, one-statement per line source you can actually read
 
 It doesn't regex the text and hope. It runs a real lexer and a recursive-descent parser, builds an AST, and prints that back out. So the formatting is structural, not guessed, and if the input isn't valid Luau it tells you instead of quietly mangling it.
 
@@ -87,12 +87,12 @@ Operator precedence and right-associativity (`^`, `..`) are done properly, so it
 
 ## Honest limits
 
-- **Comments are dropped.** The parser reads them so they don't break anything, but the beautifier prints from the AST and comments aren't in it. Decompiled code has no comments anyway, which is the main thing this is for — but if you run it on your own commented source, the comments won't survive. Keep an original.
-- **It reformats, it doesn't rename.** `L0_1` stays `L0_1`. This makes structure readable; it won't guess what a variable was called.
-- **Type annotations** (`local x: number`, `-> Type`) aren't parsed. Plain Luau and decompiler output don't emit them, so this is fine for the common case, but hand-written strictly-typed code will error out (and `safe` will just return it untouched).
-- Blank lines from the original aren't preserved — output spacing is uniform.
+- **Comments are dropped.** The parser reads them so they don't break anything, but the beautifier prints from the AST and comments aren't in it. Decompiled code has no comments anyway, which is the main thing this is for but if you run it on your own commented source, the comments won't survive, keep an original
+- **It reformats, it doesn't rename.** `L0_1` stays `L0_1`. This makes structure readable; it won't guess what a variable was called
+- **Type annotations** (`local x: number`, `-> Type`) aren't parsed. Plain Luau and decompiler output don't emit them, so this is fine for the common case, but hand written strictly typed code will error out (and `safe` will just return it untouched)
+- Blank lines from the original aren't preserved output spacing is uniform
 
-If `beautify` throws or `safe` hands you back your input unchanged, it means the parser genuinely couldn't make sense of the code. That's usually a type annotation, or truncated/corrupt decompiler output.
+If `beautify` throws or `safe` hands you back your input unchanged, it means the parser genuinely couldn't make sense of the code. That's usually a type annotation, or truncated/corrupt decompiler output
 
 ## License
 
