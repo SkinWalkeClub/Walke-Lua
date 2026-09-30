@@ -1,4 +1,4 @@
-# Walke Lua
+# Walke Lua: Luau Parser - Beautifier
 
 A Luau parser and code beautifier written in pure Lua. Feed it ugly, minified, or decompiled code one giant line, no spacing, `L0_1`/`L1_1` variable soup and it hands back clean, indented, one statement per line source you can actually read
 
