@@ -2,7 +2,7 @@
 
 A Luau parser and code beautifier written in pure Lua. Feed it ugly, minified, or decompiled code one giant line, no spacing, `L0_1`/`L1_1` variable soup and it hands back clean, indented, one statement per line source you can actually read
 
-It doesn't regex the text and hope. It runs a real lexer and a recursive-descent parser, builds an AST, and prints that back out. So the formatting is structural, not guessed, and if the input isn't valid Luau it tells you instead of quietly mangling it.
+It doesn't regex the text and hope. It runs a real lexer and a recursive descent parser, builds an AST, and prints that back out. So the formatting is structural, not guessed, and if the input isn't valid Luau it tells you instead of quietly mangling it.
 
 ## Load it
 
